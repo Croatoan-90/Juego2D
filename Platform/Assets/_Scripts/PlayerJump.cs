@@ -23,7 +23,10 @@ public class PlayerJump : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(Mathf.Abs(_rigidbody.velocity.y) < 0.01f)
-            _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+            {
+                _rigidbody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                AudioManager.instance.PlayJump();
+            }
 
         }
         
